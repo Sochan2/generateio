@@ -10,17 +10,17 @@ const symbol="!@#$%^^&*?()+-";
 const alChars = upperCase + lowerCase + number + symbol;
 
 function createPassword(){
-let password="";
-password += upperCase[Math.floor(Math.random()*upperCase.length)];
-password += lowerCase[Math.floor(Math.random()*lowerCase.length)];
-password += number[Math.floor(Math.random()*number.length)];
-password += symbol[Math.floor(Math.random()*symbol.length)];
+ let password = "";
+    const allChars = upperCase + lowerCase + number + symbol;
+    const allCharsLength = allChars.length;
 
-while(length>password.length){
- password+=password += alChars[Math.floor(Math.random()*symbol.length)];
+    for (let i = 0; i < length; i++) {
+        password += allChars[Math.floor(Math.random() * allCharsLength)];
+    }
+
+    passwordBox.value = password;
 }
-passwordBox.value = password;
-}
+
 
 function  copyPassword(){
   passwordBox.select();
